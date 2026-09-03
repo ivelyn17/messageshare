@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>近期热销 | 印花组空亦鹤对接服务站</title>
+<style>
+:root{--primary:#ea580c;--primary-light:#fff7ed;--primary-lighter:#ffedd5;--primary-dark:#c2410c;--bg:#fff8f3;--bg-card:#ffffff;--text:#1c1917;--text-light:#78716c;--text-lighter:#a8a29e;--border:#fed7aa;--border-light:#ffedd5;--warning-red:#dc2626;--shadow:0 2px 12px rgba(234,88,12,0.06);--shadow-lg:0 4px 24px rgba(234,88,12,0.1);--radius:12px;--radius-sm:8px;--topbar-h:56px;--sidebar-w:200px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+/* Topbar */
+.topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 20px;gap:14px;box-shadow:0 1px 8px rgba(234,88,12,0.04)}
+.topbar-back{font-size:14px;color:var(--primary);font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.topbar-title{font-size:20px;font-weight:800;color:var(--primary);letter-spacing:1px;white-space:nowrap}
+.topbar-sub{font-size:13px;color:var(--text-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+
+
+/* Sidebar */
+.sidebar{position:fixed;top:var(--topbar-h);left:0;bottom:0;width:200px;background:var(--bg-card);border-right:1px solid var(--border-light);overflow-y:auto;z-index:90;box-shadow:2px 0 8px rgba(234,88,12,0.03)}
+.sidebar-title{font-size:18px;font-weight:700;color:#44403c;padding:20px 20px 12px;border-bottom:1px solid var(--border-light)}
+.sidebar-menu{list-style:none;padding:8px 0}
+.sidebar-menu li{position:relative}
+.sidebar-menu a{display:flex;align-items:center;gap:10px;padding:12px 20px;font-size:15px;color:var(--text);transition:all .2s;border-left:3px solid transparent;cursor:pointer}
+.sidebar-menu a:hover{background:var(--primary-light);border-left-color:var(--border)}
+.sidebar-menu a.active{background:var(--primary-lighter);border-left-color:var(--primary);color:var(--primary);font-weight:600}
+.sidebar-menu .icon{font-size:18px}
+.sidebar-overlay{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;bottom:0;background:rgba(0,0,0,0.3);z-index:85}
+.sidebar-overlay.show{display:block}
+.menu-toggle{display:none;font-size:22px;background:none;border:none;cursor:pointer;color:var(--primary);padding:4px}
+
+/* Main */
+
+.main{margin-left:var(--sidebar-w);margin-top:var(--topbar-h)}
+
+/* Intro card */
+.intro-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:28px;margin:24px;box-shadow:var(--shadow)}
+.intro-card h2{font-size:24px;font-weight:800;color:var(--text);margin-bottom:10px}
+.intro-card p{font-size:15px;color:var(--text-light);line-height:1.8}
+.warning-banner{display:inline-flex;align-items:center;gap:6px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:6px;padding:6px 14px;margin-bottom:16px;font-size:14px;color:var(--warning-red);font-weight:600;width:fit-content}
+
+/* Tab buttons */
+.tab-bar{display:flex;gap:10px;margin:0 24px 20px}
+.tab-btn{padding:10px 24px;font-size:15px;font-weight:600;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text-light);cursor:pointer;transition:all .2s}
+.tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tab-btn:hover:not(.active){border-color:var(--primary);color:var(--primary)}
+
+/* Content area */
+.content-area{padding:0 24px 40px}
+
+/* Hot search section */
+.section-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.hot-section{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hot-section h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.hot-section p{font-size:14px;color:var(--text-light);line-height:1.8}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.tag{font-size:13px;padding:4px 12px;border-radius:6px;font-weight:500}
+.tag.up{color:#16a34a;background:#dcfce7}
+.tag.down{color:var(--warning-red);background:#fee2e2}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.stat-card{background:var(--primary-light);border:1px solid var(--border-light);border-radius:8px;padding:14px;text-align:center}
+.stat-card .label{font-size:12px;color:var(--text-light);margin-bottom:4px}
+.stat-card .value{font-size:18px;font-weight:800;color:var(--primary)}
+.stat-card .sub{font-size:11px;color:var(--text-lighter);margin-top:2px}
+.hot-item{background:var(--bg);border-radius:8px;padding:14px;margin-top:8px}
+.hot-item .name{font-size:15px;font-weight:700;color:var(--text)}
+.hot-item .desc{font-size:13px;color:var(--text-light);margin-top:4px}
+.trend-up{color:#16a34a;font-weight:600}
+
+/* Products section */
+.prod-sidebar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.prod-tab{padding:8px 18px;font-size:14px;font-weight:600;border:1.5px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text-light);cursor:pointer;transition:all .2s}
+.prod-tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.prod-tab:hover:not(.active){border-color:var(--primary);color:var(--primary)}
+.prod-group{margin-bottom:32px}
+.prod-group-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:2px solid var(--border-light)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.prod-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .2s;cursor:pointer}
+.prod-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.prod-card img{width:100%;height:300px;object-fit:contain;background:#fafafa;border-bottom:1px solid var(--border-light)}
+.prod-card-body{padding:14px}
+.prod-card-desc{font-size:14px;color:var(--text);font-weight:500;line-height:1.6;margin-bottom:8px}
+.prod-card-meta{display:flex;gap:10px;flex-wrap:wrap}
+.meta-tag{font-size:12px;color:var(--primary);background:var(--primary-lighter);padding:3px 10px;border-radius:6px;font-weight:500}
+.meta-time{font-size:12px;color:var(--text-lighter);padding:3px 10px}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:200;justify-content:center;align-items:center;cursor:zoom-out}
+.lightbox.show{display:flex}
+.lightbox img{max-width:90%;max-height:90%;border-radius:8px}
+
+/* Overlay for mobile sidebar */
+
+/* Footer */
+.footer{text-align:center;padding:24px;font-size:13px;color:var(--text-lighter);border-top:1px solid var(--border-light)}
+
+@media(max-width:768px){
+  .menu-toggle{display:block}
+  .topbar-sub{display:none}
+  .sidebar{transform:translateX(-100%);transition:transform .3s;z-index:95}
+  .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,0.15)}
+  .sidebar-overlay.show{display:block}
+  .main{margin-left:0}
+  
+  
+  
+  
+  .intro-card,.content-area{padding-left:14px;padding-right:14px;margin-left:0;margin-right:0}
+  .tab-bar{margin:0 14px 16px}
+  .prod-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+
+<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-title">功能模块</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html"><span class="icon">🏠</span> 返回首页</a></li>
+    <li><a class="active" onclick="switchTab('hot')"><span class="icon">📊</span> 热搜词</a></li>
+    <li><a onclick="switchTab('products')"><span class="icon">🖼️</span> 爆款分享</a></li>
+  </ul>
+</div>
+
+<div class="topbar">
+  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  <a class="topbar-back" href="index.html#section-hot">← 返回首页</a>
+  <span class="topbar-title">近期热销</span>
+  <span class="topbar-sub">印花组空亦鹤 · 大码男装 · 标码男装POLO、运动夹克 · 孕妇装</span>
+</div>
+
+<div class="main">
+
+<div class="intro-card">
+  <h2>🔥 近期热销</h2>
+  <p>汇总本周美国男装市场的热门搜索词与爆款商品参考，数据每周更新。涵盖热搜关键词趋势变化、节庆/季节性需求、风格元素风向标，以及各品类的爆款商品图片参考。</p>
+</div>
+
+<div class="content-area">
+
+<div id="hotTab">
+  <div class="warning-banner">⚠️ 仅提供热点参考，禁止侵权！</div>
+  <div class="section-title">📊 W35 美国男装（含大码）全半托热搜词</div>
+  <div id="hotContent"></div>
+</div>
+
+<div id="prodTab" style="display:none">
+  <div class="warning-banner">⚠️ 图片仅供风格定位参考，不可侵权</div>
+  <div class="prod-sidebar" id="prodTabs"></div>
+  <div id="prodContent"></div>
+</div>
+
+</div>
+
+<div class="footer">印花组空亦鹤对接服务站 · 联系方式-微信：baobaoansheng TC：ivelyn.wang · 半托管入驻邀请码：jmvxzv</div>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightboxImg" src=""></div>
+
+<script>
+var hotSearch = {"title": "W35 美国男装（含大码）全半托热搜词", "sections": [{"icon": "📊", "title": "类目倾向", "content": "本周卫衣连帽衫、冬季服装、长袖衬衫等秋冬服饰相关搜索词热度进一步上升，短裤等夏季服饰热度持续下跌", "tags": ["卫衣连帽衫↑", "冬季服装↑", "长袖衬衫↑", "短裤↓"]}, {"icon": "🎃", "title": "节庆趋势", "items": [{"name": "Halloween（万圣节）", "desc": "依旧强势，本周已跑出8个相关搜索词（相比W34多跑出3个）", "trend": "up"}, {"name": "Christmas（圣诞节）", "desc": "热度稳步提升，Christmas搜索排名本周继续上升17位", "trend": "up"}]}, {"icon": "🏹", "title": "运动场景", "content": "重点关注hunting（打猎），本周唯一热度增长的运动需求场景，美国秋季猎鹿季（9-10月）即将全面开放", "tags": ["hunting↑"]}, {"icon": "🎨", "title": "风格/元素趋势", "content": "本周热度上升明显的风格/元素：", "tags": ["战术/工装风↑", "定制款服饰↑", "搞怪/趣味元素↑"]}, {"icon": "🔥", "title": "现象级搜索词 — Dolly Parton（多莉·帕顿）", "content": "空降搜索词第3名。Dolly Parton于2026年8月25日去世，享年80岁，全球出现一轮巨大的\"Dolly Parton 重新爆红\"。", "stats": [{"label": "搜索排名", "value": "空降第3名"}, {"label": "美国播放量", "value": "120万→2630万", "sub": "增长约2109%"}, {"label": "全球播放量", "value": "增长约1280%"}, {"label": "Google热度", "value": "美国第1", "sub": "超过天气、体育比分"}], "note": "《I Will Always Love You》《Jolene》《9 to 5》等老歌重新冲上大众视野"}]}
+var hotProducts = [{"category": "大码男装", "icon": "👕", "items": [{"img": "images/dama_1.png", "desc": "黑色连帽卫衣，后背全幅印花设计（金刚/绿巨人肌肉形象+励志文字），街头健身风", "cat": "大码男士休闲运动卫衣"}, {"img": "images/dama_2.png", "desc": "灰色连帽拉链卫衣，袖子迷彩印花，左胸鹿头徽章，工装战术风", "cat": "大码男士休闲运动卫衣"}, {"img": "images/dama_3.png", "desc": "军绿色运动套装（夹克+长裤），白色三叶草标志，立领拉链设计", "cat": "大码男士运动套装"}]}, {"category": "标码男装 - POLO", "icon": "👔", "items": [{"img": "images/polo_1.png", "desc": "黑色短袖POLO衫，胸前白色横条纹，棕褐色领口/袖口，银色拉链领口设计，搭配棕褐色休闲长裤", "cat": "男士Polo衫"}]}, {"category": "标码男装 - 运动夹克", "icon": "🧥", "items": [{"img": "images/jacket_1.png", "desc": "浅灰色连帽拉链运动夹克，袖子迷彩印花，鹿头徽章，多口袋设计，户外狩猎风", "cat": "男士轻型夹克"}]}, {"category": "孕妇装", "icon": "👗", "items": [{"img": "images/pregnant_1.png", "desc": "黑色短袖连衣裙，正面黑人女性头像图案印花，宽松版型", "cat": "孕妇连衣裙"}, {"img": "images/pregnant_2.jpeg", "desc": "三款印花短袖连衣裙：蓝色豹纹 / 蓝粉抽象晕染 / 粉色蝴蝶图案", "cat": "孕妇连衣裙"}, {"img": "images/pregnant_3.png", "desc": "绿色碎花长款连衣裙，V领收腰设计，清新田园风", "cat": "孕妇连衣裙"}]}]
+
+var currentProdCategory = "全部";
+
+
+function toggleSidebar(){
+  var sb=document.getElementById("sidebar");var ov=document.getElementById("overlay");
+  sb.classList.toggle("open");ov.classList.toggle("show");
+}
+
+function switchTab(tab){
+  if(tab==="hot"){
+    document.getElementById("hotTab").style.display="";
+    document.getElementById("prodTab").style.display="none";
+    document.querySelectorAll(".tab-btn")[0].classList.add("active");
+    document.querySelectorAll(".tab-btn")[1].classList.remove("active");
+    document.querySelectorAll(".sidebar-menu a")[1].classList.add("active");
+    document.querySelectorAll(".sidebar-menu a")[2].classList.remove("active");
+  }else{
+    document.getElementById("hotTab").style.display="none";
+    document.getElementById("prodTab").style.display="";
+    document.querySelectorAll(".tab-btn")[0].classList.remove("active");
+    document.querySelectorAll(".tab-btn")[1].classList.add("active");
+    document.querySelectorAll(".sidebar-menu a")[1].classList.remove("active");
+    document.querySelectorAll(".sidebar-menu a")[2].classList.add("active");
+  }
+  
+}
+
+function renderHot(){
+  var c=document.getElementById("hotContent");
+  var s=hotSearch.sections;
+  var html="";
+  for(var i=0;i<s.length;i++){
+    var sec=s[i];
+    html+='<div class="hot-section">';
+    html+='<h3>'+sec.icon+' '+sec.title+'</h3>';
+    if(sec.content)html+='<p>'+sec.content+'</p>';
+    if(sec.tags){
+      html+='<div class="tag-row">';
+      for(var j=0;j<sec.tags.length;j++){
+        var t=sec.tags[j];
+        var cls=t.indexOf("↓")>-1?"down":"up";
+        html+='<span class="tag '+cls+'">'+t+'</span>';
+      }
+      html+='</div>';
+    }
+    if(sec.items){
+      for(var k=0;k<sec.items.length;k++){
+        var it=sec.items[k];
+        html+='<div class="hot-item">';
+        html+='<div class="name">'+it.name+(it.trend==="up"?' <span class="trend-up">↑</span>':'')+'</div>';
+        html+='<div class="desc">'+it.desc+'</div>';
+        html+='</div>';
+      }
+    }
+    if(sec.stats){
+      html+='<div class="stat-grid">';
+      for(var m=0;m<sec.stats.length;m++){
+        var st=sec.stats[m];
+        html+='<div class="stat-card"><div class="label">'+st.label+'</div><div class="value">'+st.value+'</div>';
+        if(st.sub)html+='<div class="sub">'+st.sub+'</div>';
+        html+='</div>';
+      }
+      html+='</div>';
+    }
+    if(sec.note)html+='<p style="margin-top:10px;font-size:13px;color:var(--text-lighter);font-style:italic">'+sec.note+'</p>';
+    html+='</div>';
+  }
+  c.innerHTML=html;
+}
+
+function renderProdTabs(){
+  var c=document.getElementById("prodTabs");
+  var html='<button class="prod-tab'+(currentProdCategory==="全部"?" active":"")+'" onclick="filterProd(\'全部\')">全部</button>';
+  for(var i=0;i<hotProducts.length;i++){
+    var p=hotProducts[i];
+    html+='<button class="prod-tab'+(currentProdCategory===p.category?" active":"")+'" onclick="filterProd(\''+p.category+'\')">'+p.icon+' '+p.category+'</button>';
+  }
+  c.innerHTML=html;
+}
+
+function filterProd(cat){
+  currentProdCategory=cat;
+  renderProdTabs();
+  renderProducts();
+}
+
+function renderProducts(){
+  var c=document.getElementById("prodContent");
+  var html="";
+  var groups=currentProdCategory==="全部"?hotProducts:hotProducts.filter(function(p){return p.category===currentProdCategory;});
+  for(var i=0;i<groups.length;i++){
+    var g=groups[i];
+    html+='<div class="prod-group">';
+    html+='<div class="prod-group-title">'+g.icon+' '+g.category+'</div>';
+    html+='<div class="prod-grid">';
+    for(var j=0;j<g.items.length;j++){
+      var item=g.items[j];
+      html+='<div class="prod-card" onclick="openLightbox(\''+item.img+'\')">';
+      html+='<img src="'+item.img+'" alt="'+item.desc+'" loading="lazy">';
+      html+='<div class="prod-card-body">';
+      html+='<div class="prod-card-desc">'+item.desc+'</div>';
+      html+='<div class="prod-card-meta">';
+      if(item.cat)html+='<span class="meta-tag">推荐类目：'+item.cat+'</span>';
+      html+='<span class="meta-time">更新时间：2026/9/3</span>';
+      html+='</div>';
+      html+='</div>';
+      html+='</div>';
+    }
+    html+='</div>';
+    html+='</div>';
+  }
+  c.innerHTML=html;
+}
+
+function openLightbox(src){
+  document.getElementById("lightboxImg").src=src;
+  document.getElementById("lightbox").classList.add("show");
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("show");
+}
+
+renderHot();
+renderProdTabs();
+renderProducts();
+</script>
+</body>
+</html>
