@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>近期热销 | 印花组空亦鹤对接服务站</title>
 <style>
-:root{--primary:#ea580c;--primary-light:#fff7ed;--primary-lighter:#ffedd5;--primary-dark:#c2410c;--bg:#fff8f3;--bg-card:#ffffff;--text:#1c1917;--text-light:#78716c;--text-lighter:#a8a29e;--border:#fed7aa;--border-light:#ffedd5;--warning-red:#dc2626;--shadow:0 2px 12px rgba(234,88,12,0.06);--shadow-lg:0 4px 24px rgba(234,88,12,0.1);--radius:12px;--radius-sm:8px;--sidebar-w:200px;--topbar-h:56px}
+:root{--primary:#ea580c;--primary-light:#fff7ed;--primary-lighter:#ffedd5;--primary-dark:#c2410c;--bg:#fff8f3;--bg-card:#ffffff;--text:#1c1917;--text-light:#78716c;--text-lighter:#a8a29e;--border:#fed7aa;--border-light:#ffedd5;--warning-red:#dc2626;--shadow:0 2px 12px rgba(234,88,12,0.06);--shadow-lg:0 4px 24px rgba(234,88,12,0.1);--radius:12px;--radius-sm:8px;--topbar-h:56px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
 a{text-decoration:none;color:inherit}
@@ -15,26 +15,15 @@ a{text-decoration:none;color:inherit}
 .topbar-back{font-size:14px;color:var(--primary);font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap}
 .topbar-title{font-size:20px;font-weight:800;color:var(--primary);letter-spacing:1px;white-space:nowrap}
 .topbar-sub{font-size:13px;color:var(--text-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
-.menu-toggle{display:none;font-size:22px;background:none;border:none;cursor:pointer;color:var(--primary);padding:4px}
-
-/* Sidebar */
-.sidebar{position:fixed;top:var(--topbar-h);left:0;bottom:0;width:var(--sidebar-w);background:var(--bg-card);border-right:1px solid var(--border-light);overflow-y:auto;z-index:90;box-shadow:2px 0 8px rgba(234,88,12,0.03)}
-.sidebar-title{font-size:18px;font-weight:700;color:var(--text-light);padding:20px 20px 12px;border-bottom:1px solid var(--border-light)}
-.sidebar-menu{list-style:none;padding:8px 0}
-.sidebar-menu li{position:relative}
-.sidebar-menu a{display:flex;align-items:center;gap:10px;padding:12px 20px;font-size:15px;color:var(--text);transition:all .2s;border-left:3px solid transparent}
-.sidebar-menu a:hover{background:var(--primary-light);border-left-color:var(--border)}
-.sidebar-menu a.active{background:var(--primary-lighter);border-left-color:var(--primary);color:var(--primary);font-weight:600}
-.sidebar-menu .icon{font-size:18px}
 
 /* Main */
-.main{margin-left:var(--sidebar-w);margin-top:var(--topbar-h)}
+.main{margin-top:var(--topbar-h)}
 
 /* Intro card */
 .intro-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:28px;margin:24px;box-shadow:var(--shadow)}
 .intro-card h2{font-size:24px;font-weight:800;color:var(--text);margin-bottom:10px}
 .intro-card p{font-size:15px;color:var(--text-light);line-height:1.8}
-.warning-banner{display:flex;align-items:center;gap:8px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:8px;padding:10px 16px;margin-top:14px;font-size:14px;color:var(--warning-red);font-weight:600}
+.warning-banner{display:inline-flex;align-items:center;gap:6px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:6px;padding:6px 14px;margin-bottom:16px;font-size:14px;color:var(--warning-red);font-weight:600;width:fit-content}
 
 /* Tab buttons */
 .tab-bar{display:flex;gap:10px;margin:0 24px 20px}
@@ -87,19 +76,17 @@ a{text-decoration:none;color:inherit}
 .lightbox img{max-width:90%;max-height:90%;border-radius:8px}
 
 /* Overlay for mobile sidebar */
-.sidebar-overlay{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;bottom:0;background:rgba(0,0,0,0.3);z-index:85}
-.sidebar-overlay.show{display:block}
 
 /* Footer */
 .footer{text-align:center;padding:24px;font-size:13px;color:var(--text-lighter);border-top:1px solid var(--border-light)}
 
 @media(max-width:768px){
-  .menu-toggle{display:block}
+  
   .topbar-sub{display:none}
-  .sidebar{transform:translateX(-100%);transition:transform .3s;z-index:95}
-  .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,0.15)}
-  .sidebar-overlay.show{display:block}
-  .main{margin-left:0}
+  
+  
+  
+  
   .intro-card,.content-area{padding-left:14px;padding-right:14px;margin-left:0;margin-right:0}
   .tab-bar{margin:0 14px 16px}
   .prod-grid{grid-template-columns:1fr}
@@ -109,48 +96,14 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <div class="topbar">
-  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-  <a class="topbar-back" href="index.html">← 返回首页</a>
+  <a class="topbar-back" href="index.html#section-hot">← 返回首页</a>
   <span class="topbar-title">近期热销</span>
   <span class="topbar-sub">印花组空亦鹤 · 大码男装 · 标码男装POLO、运动夹克 · 孕妇装</span>
 </div>
 
-<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
-
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-title">功能模块</div>
-  <ul class="sidebar-menu">
-    <li><a href="index.html"><span class="icon">🏠</span> 首页</a></li>
-    <li><a href="#" class="active" onclick="switchTab('hot');return false"><span class="icon">📊</span> 热搜词</a></li>
-    <li><a href="#" onclick="switchTab('products');return false"><span class="icon">🖼️</span> 爆款分享</a></li>
-  </ul>
-</div>
-
-<div class="main">
-
-<div class="intro-card">
-  <h2>🔥 近期热销</h2>
-  <p>汇总本周美国男装市场的热门搜索词与爆款商品参考，数据每周更新。涵盖热搜关键词趋势变化、节庆/季节性需求、风格元素风向标，以及各品类的爆款商品图片参考。</p>
-  <div class="warning-banner">⚠️ 仅提供参考，禁止侵权！</div>
-</div>
-
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('hot')">📊 热搜词</button>
-  <button class="tab-btn" onclick="switchTab('products')">🖼️ 爆款分享</button>
-</div>
-
-<div class="content-area">
-
-<!-- Hot Search Tab -->
-<div id="hotTab">
-  <div class="warning-banner" style="margin-bottom:20px">⚠️ 仅提供热点参考，禁止侵权！</div>
-  <div class="section-title">📊 W35 美国男装（含大码）全半托热搜词</div>
-  <div id="hotContent"></div>
-</div>
-
 <!-- Products Tab -->
 <div id="prodTab" style="display:none">
-  <div class="warning-banner" style="margin-bottom:20px">⚠️ 图片仅供风格定位参考，不可侵权</div>
+  <div class="warning-banner">⚠️ 图片仅供风格定位参考，不可侵权</div>
   <div class="prod-sidebar" id="prodTabs"></div>
   <div id="prodContent"></div>
 </div>
@@ -170,28 +123,21 @@ var hotProducts = [{"category": "大码男装", "icon": "👕", "items": [{"img"
 
 var currentProdCategory = "全部";
 
-function toggleSidebar(){
-  var sb=document.getElementById("sidebar");var ov=document.getElementById("overlay");
-  sb.classList.toggle("open");ov.classList.toggle("show");
-}
-
 function switchTab(tab){
   if(tab==="hot"){
     document.getElementById("hotTab").style.display="";
     document.getElementById("prodTab").style.display="none";
     document.querySelectorAll(".tab-btn")[0].classList.add("active");
     document.querySelectorAll(".tab-btn")[1].classList.remove("active");
-    document.querySelectorAll(".sidebar-menu a")[1].classList.add("active");
-    document.querySelectorAll(".sidebar-menu a")[2].classList.remove("active");
+    
   }else{
     document.getElementById("hotTab").style.display="none";
     document.getElementById("prodTab").style.display="";
     document.querySelectorAll(".tab-btn")[0].classList.remove("active");
     document.querySelectorAll(".tab-btn")[1].classList.add("active");
-    document.querySelectorAll(".sidebar-menu a")[1].classList.remove("active");
-    document.querySelectorAll(".sidebar-menu a")[2].classList.add("active");
+    
   }
-  if(window.innerWidth<=768){document.getElementById("sidebar").classList.remove("open");document.getElementById("overlay").classList.remove("show");}
+  
 }
 
 function renderHot(){
@@ -269,8 +215,8 @@ function renderProducts(){
       html+='<div class="prod-card-body">';
       html+='<div class="prod-card-desc">'+item.desc+'</div>';
       html+='<div class="prod-card-meta">';
-      if(item.cat)html+='<span class="meta-tag">📍 '+item.cat+'</span>';
-      html+='<span class="meta-time">🕐 W35</span>';
+      if(item.cat)html+='<span class="meta-tag">推荐类目：'+item.cat+'</span>';
+      html+='<span class="meta-time">更新时间：2026/9/3</span>';
       html+='</div>';
       html+='</div>';
       html+='</div>';
