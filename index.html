@@ -247,7 +247,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
 </div>
 
 <!-- 板块2: 近期热销 -->
-<span id="section-hot"></span>
+<span id="section-hot" style="display:block;position:relative;top:-80px;visibility:hidden;"></span>
 <div class="section" id="sec2" data-anchor="section-hot">
   <div class="section-header">
     <span class="section-num">02</span>
@@ -572,6 +572,20 @@ window.addEventListener("scroll", function() {
 });
 
 init();
+
+// Handle URL hash on load - scroll to section
+window.addEventListener('load', function() {
+  var hash = window.location.hash;
+  if (hash) {
+    var target = document.querySelector(hash);
+    if (target) {
+      setTimeout(function() {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  }
+});
+
 </script>
 </body>
 </html>
